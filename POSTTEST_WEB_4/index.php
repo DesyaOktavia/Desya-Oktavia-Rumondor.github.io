@@ -1,0 +1,128 @@
+<?php
+session_start();
+$user = isset($_SESSION['username']) ? $_SESSION['username'] : null;
+?>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Manajemen Perpustakaan</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="container">
+  <h1>📚 Manajemen Perpustakaan</h1>
+  <p><em>Selamat Datang Di Website Perpustakaan Lily</em></p>
+  <?php if ($user): ?>
+    <p>👋 Halo, <strong><?= htmlspecialchars($user) ?></strong> | <a href="logout.php">Logout</a></p>
+  <?php else: ?>
+    <p><a href="login.php">Login</a> untuk mengakses Dashboard</p>
+  <?php endif; ?>
+</header>
+
+  <nav class="container" role="navigation" aria-label="Menu utama">
+    <a href="#beranda">Beranda</a>
+    <a href="#koleksi">Koleksi</a>
+    <a href="#artikel">Artikel</a>
+    <a href="#tentang">Tentang</a>
+    <a href="#kontak">Kontak</a>
+  </nav>
+
+  <main class="container">
+
+    <section id="beranda">
+      <h2>🏠 Selamat Datang</h2>
+      <p>Website ini memudahkan dalam pendataan meminjam buku.</p>
+    </section>
+
+    <section id="koleksi">
+      <h2>📖 Koleksi Buku</h2>
+      <p>Beberapa koleksi buku yang tersedia:</p>
+      <div class="koleksi-grid" role="list">
+        <article class="koleksi-item" role="listitem" tabindex="0">
+          <h3>Laskar Pelangi</h3>
+          <p>Penulis: Andrea Hirata</p>
+          <p>Tahun: 2005</p>
+          <img src="LaskarPelangi.jpg" alt="Deskripsi gambar" width="220" height="300">
+        </article>
+        <article class="koleksi-item" role="listitem" tabindex="0">
+          <h3>Bumi</h3>
+          <p>Penulis: Tere Liye</p>
+          <p>Tahun: 2014</p>
+          <img src="Bumi.jpg" alt="Deskripsi gambar" width="220" height="300">
+        </article>
+        <article class="koleksi-item" role="listitem" tabindex="0">
+          <h3>Hujan</h3>
+          <p>Penulis: Tere Liye</p>
+          <p>Tahun: 2016</p>
+          <img src="Hujan.jpg" alt="Deskripsi gambar" width="220" height="300">
+        </article>
+        <article class="koleksi-item" role="listitem" tabindex="0">
+          <h3>Kata, Tentang Senja Yang Kehilangan Langitnya</h3>
+          <p>Penulis: Rintik Sedu</p>
+          <p>Tahun: 2018</p>
+          <img src="Kata.jpg" alt="Deskripsi gambar" width="220" height="300">
+        </article>
+        <article class="koleksi-item" role="listitem" tabindex="0">
+          <h3>Negeri 5 Menara</h3>
+          <p>Penulis: Ahmad Fuadi</p>
+          <p>Tahun: 2009</p>
+          <img src="Negeri5Menara.jpg" alt="Deskripsi gambar" width="220" height="300">
+        </article>
+        <article class="koleksi-item" role="listitem" tabindex="0">
+          <h3>Tentang Kamu</h3>
+          <p>Penulis: Tere Liye</p>
+          <p>Tahun: 2016</p>
+          <img src="TentangKamu.jpg" alt="Deskripsi gambar" width="220" height="300">
+        </article>
+      </div>
+    </section>
+
+    <section id="artikel">
+      <h2>📰 Artikel & Informasi</h2>
+      <div class="article-list">
+        <article class="card" tabindex="0">
+          <h3>📌 Cara Menggunakan Sistem</h3>
+          <p>Panduan singkat untuk mencari dan meminjam buku melalui sistem perpustakaan.</p>
+        </article>
+        <article class="card" tabindex="0">
+          <h3>📌 Berita Perpustakaan</h3>
+          <p>Kegiatan terbaru: Seminar Literasi, Pameran Buku, dan Workshop Penulisan.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="tentang">
+      <h2>ℹ️ Tentang Kami</h2>
+      <p>Perpustakaan ini hadir untuk mendukung budaya membaca dan menyediakan akses informasi bagi masyarakat.</p>
+    </section>
+
+    <section id="kontak">
+      <h2>☎️ Kontak</h2>
+      <address class="address">
+        <p>Email: <a href="mailto:info@perpustakaan.ac.id">info@perpustakaan.ac.id</a></p>
+        <p>Telepon: <a href="tel:+62211234567">(021) 1234567</a></p>
+        <p>Alamat: Jl. Kenangan No. 115, Samarinda</p>
+      </address>
+    </section>
+
+  </main>
+
+  <footer class="container">
+    <p>&copy; 2025 Manajemen Perpustakaan</p>
+    <p>Referensi desain: 
+      <a href="https://opacperpustakaan.jogjakota.go.id/inlislite3/opac/" target="_blank" rel="noopener noreferrer">
+        OPAC Perpustakaan Jogja
+      </a>
+    </p>
+    <p>Repository GitHub: 
+      <a href="https://github.com/DesyaOktavia/Desya-Oktavia-Rumondor.github.io" target="_blank" rel="noopener noreferrer">
+        github.com/username/manajemen-perpustakaan
+      </a>
+    </p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
